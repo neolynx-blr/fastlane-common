@@ -7,6 +7,7 @@ import lombok.Data;
 
 import org.apache.commons.collections4.CollectionUtils;
 
+import com.neolynks.common.model.client.ProductInfo;
 import com.neolynks.common.model.client.price.DiscountBase;
 import com.neolynks.common.model.client.price.DiscountDetail;
 import com.neolynks.common.model.client.price.DiscountInfo;
@@ -23,6 +24,7 @@ public class ItemProcessor {
 
 	private String barcode;
 	private String itemCode;
+	private ProductInfo productInfo;
 	
 	private ItemPrice itemPrice;
 	private Boolean isPricingChanged = false;
