@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.neolynks.common.model.order;
 
 import lombok.Data;

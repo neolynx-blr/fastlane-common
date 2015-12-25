@@ -1,5 +1,6 @@
 package com.neolynks.common.model.client.price;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +14,9 @@ import org.apache.commons.collections4.CollectionUtils;
  */
 
 @Data
-public class DiscountInfo {
+public class DiscountInfo implements Serializable {
+
+	private static final long serialVersionUID = 1810204767291078266L;
 
 	private Date startDate;
 	private Date endDate;

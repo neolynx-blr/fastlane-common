@@ -1,5 +1,7 @@
 package com.neolynks.common.model.client.price;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -8,7 +10,9 @@ import lombok.Data;
  */
 
 @Data
-public class ItemPrice implements Comparable<ItemPrice> {
+public class ItemPrice implements Comparable<ItemPrice>, Serializable {
+
+	private static final long serialVersionUID = 8222498504856208090L;
 
 	private Double mrp;
 	private Boolean isMRP = Boolean.FALSE;

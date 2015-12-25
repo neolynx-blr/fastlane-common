@@ -1,5 +1,7 @@
 package com.neolynks.common.model.client.price;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -8,7 +10,9 @@ import lombok.Data;
  */
 
 @Data
-public class TaxInfo {
+public class TaxInfo implements Serializable {
+
+	private static final long serialVersionUID = -4773014927161242633L;
 
 	private Integer taxType;
 	private Double taxValue;
