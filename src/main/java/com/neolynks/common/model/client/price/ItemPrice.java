@@ -36,11 +36,15 @@ public class ItemPrice implements Comparable<ItemPrice>, Serializable {
 	 */
 	public int compareTo(ItemPrice that) {
 
-		if (this.getMrp().compareTo(that.getMrp()) == 0 && this.getPrice().compareTo(that.getPrice()) == 0
-				&& this.getBasePrice().compareTo(that.getBasePrice()) == 0
-				&& (!this.getTaxDetail().isDifferent(that.getTaxDetail()))
-				&& (!this.getDiscountDetail().isDifferent(that.getDiscountDetail()))) {
-			return 0;
+		try {
+			if (this.getMrp().compareTo(that.getMrp()) == 0 && this.getPrice().compareTo(that.getPrice()) == 0
+					&& this.getBasePrice().compareTo(that.getBasePrice()) == 0
+					&& (!this.getTaxDetail().isDifferent(that.getTaxDetail()))
+					&& (!this.getDiscountDetail().isDifferent(that.getDiscountDetail()))) {
+				return 0;
+			}
+		} catch (NullPointerException npe) {
+			// Eat away for now //TODO
 		}
 
 		return 1;

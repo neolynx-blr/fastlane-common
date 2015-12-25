@@ -51,9 +51,9 @@ public class ItemProcessor {
 	 * @param itemPrice the itemPrice to set
 	 */
 	public void setItemPrice(ItemPrice itemPrice) {
-		if(this.getItemPrice().compareTo(itemPrice) != 0) {
+		if (this.getItemPrice() == null || this.getItemPrice().compareTo(itemPrice) != 0) {
 			this.itemPrice = itemPrice;
-			
+
 			calculatePricing();
 			this.setIsPricingChanged(Boolean.TRUE);
 		}
