@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.neolynks.common.model.order;
 
 import lombok.Data;
@@ -14,7 +11,6 @@ import lombok.Data;
 public class CartUpdated {
 
 	//Update order request
-	private String orderId;
 	private Long lastKnownServerDataVersionId;
 	
 	/**

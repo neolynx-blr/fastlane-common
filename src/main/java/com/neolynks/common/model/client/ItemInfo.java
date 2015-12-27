@@ -21,7 +21,7 @@ public class ItemInfo implements Serializable {
 	static Logger LOGGER = LoggerFactory.getLogger(ItemInfo.class);
 	private static final long serialVersionUID = 594832882355959992L;
 
-	private String barcode;
+	private Long barcode;
 	private String itemCode;
 
 	private ItemPrice itemPrice;

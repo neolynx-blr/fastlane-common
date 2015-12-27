@@ -1,8 +1,8 @@
 package com.neolynks.common.model.order;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -16,22 +16,23 @@ public class CartRequest implements Serializable {
 
 	private static final long serialVersionUID = -532841197586404513L;
 
+	private String cartId;
+	
 	private Long vendorId;
 	private Long deviceDataVersionId;
 
 	private UserDetail userDetail;
 
 	private DeliveryMode deliveryMode = DeliveryMode.IN_STORE_PICKUP;
-	private List<ItemRequest> itemList = new ArrayList<ItemRequest>();
+	
+	private Map<Long, Integer> inStorePickUpItemBarcodeCountMap = new HashMap<Long, Integer>();
+	private Map<Long, Integer> toBeDeliveredItemBarcodeCountMap = new HashMap<Long, Integer>();
 
 	private Double taxAmount;
 	private Double taxableAmount;
 	private Double discountAmount;
 
 	private Double netAmount;
-
-	private int itemCount;
-	private int totalCount;
 
 	/**
 	 * This object is used to indicate that order is updated now, although DO

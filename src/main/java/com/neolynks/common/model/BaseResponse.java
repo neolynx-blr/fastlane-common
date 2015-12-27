@@ -16,7 +16,7 @@ import lombok.Data;
 public class BaseResponse implements Serializable {
 
 	private static final long serialVersionUID = -7602457173741485802L;
-
+	
 	Boolean isError = Boolean.FALSE;
 	List<ErrorCode> errorDetail = new ArrayList<ErrorCode>();
 

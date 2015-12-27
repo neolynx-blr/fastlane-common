@@ -22,7 +22,7 @@ import com.neolynks.common.util.DiscountPlayer;
 @Data
 public class ItemProcessor {
 
-	private String barcode;
+	private Long barcode;
 	private String itemCode;
 	private ProductInfo productInfo;
 	

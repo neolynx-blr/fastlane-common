@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.neolynks.common.model.order;
 
 /**
@@ -9,6 +6,17 @@ package com.neolynks.common.model.order;
  */
 public enum Status {
 
-	CREATED, UPDATED, PENDING_PICKUP, PENDING_DELIVERY, PICKED_PENDING_DELIVERY, COMPLETED
+	CREATED(1), UPDATED(2), PENDING_PICKUP(3), PENDING_DELIVERY(4), PICKED_PENDING_DELIVERY(5), COMPLETED(6);
+	
+	private final int value;
+
+	private Status(int value) {
+		this.value = value;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
 	
 }
