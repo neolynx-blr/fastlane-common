@@ -17,8 +17,8 @@ public class ItemPrice implements Comparable<ItemPrice>, Serializable {
 	private Double mrp;
 	private Boolean isMRP = Boolean.FALSE;
 
-	private Double price;
-	private Boolean isPrice = Boolean.FALSE;
+	private Double sellingPrice;
+	private Boolean isSellingPrice = Boolean.FALSE;
 
 	private Double basePrice;
 	private Boolean isBasePrice = Boolean.FALSE;
@@ -37,7 +37,7 @@ public class ItemPrice implements Comparable<ItemPrice>, Serializable {
 	public int compareTo(ItemPrice that) {
 
 		try {
-			if (this.getMrp().compareTo(that.getMrp()) == 0 && this.getPrice().compareTo(that.getPrice()) == 0
+			if (this.getMrp().compareTo(that.getMrp()) == 0 && this.getSellingPrice().compareTo(that.getSellingPrice()) == 0
 					&& this.getBasePrice().compareTo(that.getBasePrice()) == 0
 					&& (!this.getTaxDetail().isDifferent(that.getTaxDetail()))
 					&& (!this.getDiscountDetail().isDifferent(that.getDiscountDetail()))) {
@@ -60,8 +60,8 @@ public class ItemPrice implements Comparable<ItemPrice>, Serializable {
 				differentialItemPrice.setMrp(newItemPrice.getMrp());
 			}
 
-			if (this.getPrice() == null || this.getPrice().compareTo(newItemPrice.getPrice()) != 0) {
-				differentialItemPrice.setPrice(newItemPrice.getPrice());
+			if (this.getSellingPrice() == null || this.getSellingPrice().compareTo(newItemPrice.getSellingPrice()) != 0) {
+				differentialItemPrice.setPrice(newItemPrice.getSellingPrice());
 			}
 
 			if (this.getBasePrice() == null || this.getBasePrice().compareTo(newItemPrice.getBasePrice()) != 0) {
@@ -100,9 +100,9 @@ public class ItemPrice implements Comparable<ItemPrice>, Serializable {
 	 *            the price to set
 	 */
 	public void setPrice(Double price) {
-		if (this.price != price) {
-			this.price = price;
-			this.setIsPrice(Boolean.TRUE);
+		if (this.getSellingPrice() != price) {
+			this.sellingPrice = price;
+			this.setIsSellingPrice(Boolean.TRUE);
 		}
 	}
 
@@ -147,8 +147,9 @@ public class ItemPrice implements Comparable<ItemPrice>, Serializable {
 
 	public void reset() {
 		this.setIsMRP(Boolean.FALSE);
-		this.setIsPrice(Boolean.FALSE);
 		this.setIsBasePrice(Boolean.FALSE);
+		this.setIsSellingPrice(Boolean.FALSE);
+
 		this.setIsTax(Boolean.FALSE);
 		this.setIsDiscount(Boolean.FALSE);
 	}

@@ -11,7 +11,7 @@ public class ItemResponse implements Serializable {
 
 	private static final long serialVersionUID = -2390488059710886230L;
 
-	private String barcode;
+	private Long barcode;
 
 	// private Long vendorId;
 	private Long versionId;
@@ -24,7 +24,7 @@ public class ItemResponse implements Serializable {
 	private String description;
 
 	private Double mrp;
-	private Double price;
+	private Double sellingPrice;
 
 	private String imageJSON;
 

@@ -130,7 +130,7 @@ public class ItemProcessor {
 	public void calculatePricing() {
 		
 		Double netPrice = 0.0D;
-		Double sellingPrice = this.getItemPrice().getPrice();
+		Double sellingPrice = this.getItemPrice().getSellingPrice();
 		DiscountDetail discountDetail = this.getItemPrice().getDiscountDetail();
 		int itemCount = this.getCountForDelivery() + this.getCountForInStorePickup();
 		

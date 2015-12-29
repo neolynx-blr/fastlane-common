@@ -20,7 +20,7 @@ public class ItemMaster implements Serializable {
 
 	private Long id;
 
-	private String barcode;
+	private Long barcode;
 	private String itemCode;
 	private Long versionId;
 
@@ -29,7 +29,7 @@ public class ItemMaster implements Serializable {
 	private String description;
 
 	private Double mrp;
-	private Double price;
+	private Double sellingPrice;
 
 	private String imageJSON;
 
@@ -55,7 +55,7 @@ public class ItemMaster implements Serializable {
 
 		String[] vendorInventoryRecord = new String[] { String.valueOf(uniqueId), this.getItemCode(),
 				String.valueOf(System.currentTimeMillis()), this.getName(), this.getDescription(), this.getTagline(),
-				String.valueOf(this.getBarcode()), String.valueOf(this.getMrp()), String.valueOf(this.getPrice()),
+				String.valueOf(this.getBarcode()), String.valueOf(this.getMrp()), String.valueOf(this.getSellingPrice()),
 				this.getImageJSON(), this.getDiscountJSON(), this.getTaxJSON(),
 				String.valueOf(this.getLastModifiedOn()) };
 
@@ -72,7 +72,7 @@ public class ItemMaster implements Serializable {
 			this.setVersionId(System.currentTimeMillis());
 
 			this.setItemCode(record.get("item_code"));
-			this.setBarcode(record.get("barcode"));
+			this.setBarcode(Long.parseLong(record.get("barcode")));
 
 			this.setName(record.get("name"));
 			this.setDescription(record.get("description"));
@@ -81,7 +81,7 @@ public class ItemMaster implements Serializable {
 			this.setImageJSON(record.get("image_json"));
 
 			this.setMrp(Double.parseDouble(record.get("mrp")));
-			this.setPrice(Double.parseDouble(record.get("price")));
+			this.setSellingPrice(Double.parseDouble(record.get("price")));
 
 			this.setTaxJSON(record.get("tax_json"));
 			this.setDiscountJSON(record.get("discount_json"));
@@ -104,8 +104,8 @@ public class ItemMaster implements Serializable {
 	public ItemMaster() {
 	}
 
-	public ItemMaster(Long id, String barcode, String itemCode, Long versionId, String name, String tagline,
-			String description, Double mrp, Double price, String imageJSON, String discountJSON, String taxJSON,
+	public ItemMaster(Long id, Long barcode, String itemCode, Long versionId, String name, String tagline,
+			String description, Double mrp, Double sellingPrice, String imageJSON, String discountJSON, String taxJSON,
 			Date lastModifiedOn) {
 		super();
 		this.id = id;
@@ -116,7 +116,7 @@ public class ItemMaster implements Serializable {
 		this.tagline = tagline;
 		this.description = description;
 		this.mrp = mrp;
-		this.price = price;
+		this.sellingPrice = sellingPrice;
 		this.imageJSON = imageJSON;
 		this.discountJSON = discountJSON;
 		this.taxJSON = taxJSON;
