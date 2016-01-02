@@ -11,7 +11,7 @@ public class WorkerCartInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	public enum Status {
-		OPEN, CLOSE, DISCARD;
+		OPEN, CLOSED, DISCARDED;
 	}
 	private long id;
 	private Status status;
