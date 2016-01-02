@@ -20,7 +20,7 @@ public class ItemRequest implements Serializable {
 
 	private static final long serialVersionUID = 2596651645497262599L;
 
-	private String barcode;
+	private Long barcode;
 	private String itemCode;
 	
 	private ItemPrice itemPrice;
@@ -39,10 +39,10 @@ public class ItemRequest implements Serializable {
 	 * 
 	 */	
 	
-	private Double netPrice;
-	private Double netTaxAmount;
-	private Double netTaxableAmount;
-	private Double netDiscountAmount;
+	private Double netPrice = 0.0D;
+	private Double netTaxAmount = 0.0D;
+	private Double netTaxableAmount = 0.0D;
+	private Double netDiscountAmount = 0.0D;
 
 	public List<ErrorCode> selfValidate() {
 		List<ErrorCode> response = new ArrayList<ErrorCode>();

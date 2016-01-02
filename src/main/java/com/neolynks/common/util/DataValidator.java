@@ -29,8 +29,7 @@ public class DataValidator {
 		if (cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_DELIVERY
 				|| cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_PARTIAL_DELIVERY) {
 
-			if (cart.getUserDetail() == null || cart.getUserDetail().getUserId() == null
-					|| cart.getUserDetail().getAddressId() == null) {
+			if (cart.getUserDetail() == null || cart.getUserDetail().getAddressId() == null || cart.getUserDetail().getUserId() == null) {
 				response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
 			}
 
@@ -40,22 +39,13 @@ public class DataValidator {
 			response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
 		}
 
-		if (CollectionUtils.isEmpty(cart.getItemList())) {
+		if (cart.getInStorePickUpItemBarcodeCountMap().size() == 0 && cart.getToBeDeliveredItemBarcodeCountMap().size() == 0) {
 			response.getErrorDetail().add(ErrorCode.MISSING_ITEMS_IN_CART);
 		} else {
 
-			int itemCount = 0;
-			int totalCount = 0;
-
 			// TODO Validate delivery mode being correct
 
-			if (cart.getItemCount() != itemCount) {
-				response.getErrorDetail().add(ErrorCode.INVALID_COUNT_OF_ITEM_IN_ORDER);
-			}
 
-			if (cart.getTotalCount() != totalCount) {
-				response.getErrorDetail().add(ErrorCode.INVALID_TOTAL_COUNT_OF_ITEM_IN_ORDER);
-			}
 
 		}
 
@@ -75,7 +65,7 @@ public class DataValidator {
 			response.getErrorDetail().add(ErrorCode.MISSING_UPDATE_CART_DETAILS);
 		}
 
-		if (cart.getUpdateCart().getOrderId() == null) {
+		if (cart.getCartId() == null) {
 			response.getErrorDetail().add(ErrorCode.MISSING_ORDER_ID);
 		}
 
@@ -101,8 +91,7 @@ public class DataValidator {
 		if (cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_DELIVERY
 				|| cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_PARTIAL_DELIVERY) {
 
-			if (cart.getUserDetail() == null || cart.getUserDetail().getUserId() == null
-					|| cart.getUserDetail().getAddressId() == null) {
+			if (cart.getUserDetail() == null || cart.getUserDetail().getAddressId() == null || cart.getUserDetail().getUserId() == null) {
 				response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
 			}
 
@@ -112,22 +101,11 @@ public class DataValidator {
 			response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
 		}
 
-		if (CollectionUtils.isEmpty(cart.getItemList())) {
+		if (cart.getInStorePickUpItemBarcodeCountMap().size() == 0 && cart.getToBeDeliveredItemBarcodeCountMap().size() == 0) {
 			response.getErrorDetail().add(ErrorCode.MISSING_ITEMS_IN_CART);
 		} else {
 
-			int itemCount = 0;
-			int totalCount = 0;
-
 			// TODO Validate delivery mode being correct
-
-			if (cart.getItemCount() != itemCount) {
-				response.getErrorDetail().add(ErrorCode.INVALID_COUNT_OF_ITEM_IN_ORDER);
-			}
-
-			if (cart.getTotalCount() != totalCount) {
-				response.getErrorDetail().add(ErrorCode.INVALID_TOTAL_COUNT_OF_ITEM_IN_ORDER);
-			}
 
 		}
 

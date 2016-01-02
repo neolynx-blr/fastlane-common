@@ -20,8 +20,7 @@ public class Response extends BaseResponse {
 	 * If things are okay, generate the order details and send back in response.
 	 */
 	private String orderId;
-	private String orderStatus;
-	private String orderBarcode;
+	private Integer orderStatus;
 
 	private Long serverDataVersionId;
 	private Long deviceDataVersionId;
