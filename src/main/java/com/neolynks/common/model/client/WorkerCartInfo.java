@@ -2,9 +2,19 @@ package com.neolynks.common.model.client;
 
 import java.io.Serializable;
 
+import lombok.Data;
+
+@Data
 public class WorkerCartInfo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public enum Status {
+		OPEN, CLOSE, DISCARD;
+	}
 	private long id;
-	private String status;
+	private Status status;
 	private long priority;
 	private long waitingTime; // in seconds
 	private long totalItems;
