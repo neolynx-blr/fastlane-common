@@ -16,7 +16,7 @@ public class CartInfo implements Serializable {
 
 	private static final long serialVersionUID = 1255731123698943954L;
 
-	private String id;
+	private Long id;
 	private CartStatus status = CartStatus.OPEN;
 
 	private Long userId;
