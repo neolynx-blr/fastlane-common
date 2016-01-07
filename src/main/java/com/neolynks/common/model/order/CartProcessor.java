@@ -45,7 +45,7 @@ public class CartProcessor {
 	 * sent and created on server side. Next transaction will be more like
 	 * updating the order, if anything.
 	 */
-	private String orderId;
+	private Long orderId;
 	private Long lastKnownServerDataVersionId;
 
 	private Boolean isItemListUpdated = Boolean.FALSE;
