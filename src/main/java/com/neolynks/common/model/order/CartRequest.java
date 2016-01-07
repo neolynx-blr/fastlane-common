@@ -16,7 +16,7 @@ public class CartRequest implements Serializable {
 
 	private static final long serialVersionUID = -532841197586404513L;
 
-	private String cartId;
+	private Long cartId;
 	
 	private Long vendorId;
 	private Long deviceDataVersionId;

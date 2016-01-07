@@ -19,7 +19,7 @@ public class Response extends BaseResponse {
 	/**
 	 * If things are okay, generate the order details and send back in response.
 	 */
-	private String orderId;
+	private Long orderId;
 	private Integer orderStatus;
 
 	private Long serverDataVersionId;

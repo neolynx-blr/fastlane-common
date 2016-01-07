@@ -17,7 +17,7 @@ public class ClosureRequest implements Serializable {
 
 	private static final long serialVersionUID = -6648234052901306696L;
 	
-	private String orderId;
+	private Long orderId;
 	private PaymentDetail paymentDetail;
 
 }
