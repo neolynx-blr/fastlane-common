@@ -15,9 +15,6 @@ import com.neolynks.common.model.BaseResponse;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class CartResponse extends BaseResponse implements Serializable {
-	
 	private static final long serialVersionUID = 5112133396527776299L;
-	
 	CartInfo cartBase;
-
 }

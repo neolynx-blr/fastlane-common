@@ -23,8 +23,6 @@ public class CartRequest implements Serializable {
 
 	private UserDetail userDetail;
 
-	private DeliveryMode deliveryMode = DeliveryMode.IN_STORE_PICKUP;
-	
 	private Map<Long, Integer> inStorePickUpItemBarcodeCountMap = new HashMap<Long, Integer>();
 	private Map<Long, Integer> toBeDeliveredItemBarcodeCountMap = new HashMap<Long, Integer>();
 

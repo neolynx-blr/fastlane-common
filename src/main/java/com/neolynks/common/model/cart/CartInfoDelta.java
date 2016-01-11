@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.neolynks.common.model.order.DeliveryMode;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -22,8 +20,5 @@ public class CartInfoDelta implements Serializable {
 
 	private String id;
 	private Long vendorId;
-
-	private DeliveryMode deliveryMode = DeliveryMode.IN_STORE_PICKUP;
 	private Map<Long, Integer> deltaBarcodeCount = new HashMap<Long, Integer>();
-
 }

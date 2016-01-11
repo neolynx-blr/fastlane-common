@@ -27,7 +27,6 @@ public class CartProcessor {
 	private UserDetail userDetail = new UserDetail();
 	
 	private Map<Long, Integer> inStorePickUpItemBarcodeCountMap = new HashMap<Long, Integer>();
-	private Map<Long, Integer> toBeDeliveredItemBarcodeCountMap = new HashMap<Long, Integer>();
 
 	private Map<Long, ItemProcessor> barcodeItemRequestMap = new HashMap<Long, ItemProcessor>();
 	
@@ -66,12 +65,10 @@ public class CartProcessor {
 	}
 
 	public void addItemToCart(ItemProcessor itemProcessor) {
-
 		Boolean recalculatePrice = Boolean.FALSE;
 		ItemProcessor existingItem = this.getBarcodeItemRequestMap().get(itemProcessor.getBarcode());
-		int newCount = itemProcessor.getCountForDelivery() + itemProcessor.getCountForInStorePickup();
-		int existingCount = (existingItem == null ? 0 : (existingItem.getCountForDelivery() + existingItem
-				.getCountForInStorePickup()));
+		int newCount = itemProcessor.getCountForInStorePickup();
+		int existingCount = (existingItem == null ? 0 : existingItem.getCountForInStorePickup());
 
 		if (newCount == 0) {
 			if (existingCount > 0) {
@@ -103,14 +100,13 @@ public class CartProcessor {
 	public void removeItemFromCart(Long barcode) {
 
 		ItemProcessor existingItem = this.getBarcodeItemRequestMap().get(barcode);
-		int existingCount = existingItem.getCountForDelivery() + existingItem.getCountForInStorePickup();
+		int existingCount = existingItem.getCountForInStorePickup();
 
 		this.setIsCartUpdated(Boolean.TRUE);
 		this.setIsItemListUpdated(Boolean.TRUE);
 		this.setItemCount(this.getItemCount() - 1);
 		
 		this.getBarcodeItemRequestMap().remove(barcode);
-		this.getToBeDeliveredItemBarcodeCountMap().remove(barcode);
 		this.getInStorePickUpItemBarcodeCountMap().remove(barcode);
 		
 		this.setTotalCount(this.getTotalCount() - existingCount);
@@ -132,7 +128,6 @@ public class CartProcessor {
 		this.setUserDetail(request.getUserDetail());
 		this.setDeviceDataVersionId(request.getDeviceDataVersionId());
 		
-		this.setToBeDeliveredItemBarcodeCountMap(request.getToBeDeliveredItemBarcodeCountMap());
 		this.setInStorePickUpItemBarcodeCountMap(request.getInStorePickUpItemBarcodeCountMap());
 		
 		/* TBM: @Shukla TODO
@@ -162,7 +157,6 @@ public class CartProcessor {
 		request.setUserDetail(this.getUserDetail());
 		request.setDeviceDataVersionId(this.getDeviceDataVersionId());
 
-		request.setToBeDeliveredItemBarcodeCountMap(this.getToBeDeliveredItemBarcodeCountMap());
 		request.setInStorePickUpItemBarcodeCountMap(this.getInStorePickUpItemBarcodeCountMap());
 		
 		request.setNetAmount(this.getNetAmount());
@@ -196,10 +190,6 @@ public class CartProcessor {
 
 		for (ItemRequest instance : cartResponse.getUpdateResponseInfo().getOnlyUpdatedItemList()) {
 			
-			if(instance.getCountForDelivery() > 0) {
-				this.getToBeDeliveredItemBarcodeCountMap().put(instance.getBarcode(), instance.getCountForDelivery());
-			}
-			
 			if(instance.getCountForInStorePickup() > 0) {
 				this.getInStorePickUpItemBarcodeCountMap().put(instance.getBarcode(), instance.getCountForInStorePickup());
 			}
@@ -208,7 +198,6 @@ public class CartProcessor {
 		}
 		
 		for (ItemProcessor instance : this.getBarcodeItemRequestMap().values()) {
-			instance.setIsPricingChanged(Boolean.FALSE);
 			this.getBarcodeItemRequestMap().put(instance.getBarcode(), instance);
 		}		 
 		

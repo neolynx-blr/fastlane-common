@@ -16,10 +16,8 @@ public class CartPreview implements Serializable {
 	
 	private static final long serialVersionUID = 3055115630699748328L;
 	
-	private Long userId;
+	private String userId;
 	private Long vendorId;
-
-	private DeliveryMode deliveryMode = DeliveryMode.IN_STORE_PICKUP;
 	private Map<Long, Integer> itemBarcodeCountMap = new HashMap<Long, Integer>();
 	
 }

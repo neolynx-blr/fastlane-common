@@ -34,7 +34,7 @@ public class ItemInfo implements Serializable {
 	public void updateThisWithLatestItemData(ItemInfo latestItemData) {
 
 		this.getItemPrice().setMrp(latestItemData.getItemPrice().getMrp());
-		this.getItemPrice().setPrice(latestItemData.getItemPrice().getSellingPrice());
+		this.getItemPrice().setSellingPrice(latestItemData.getItemPrice().getSellingPrice());
 		this.getItemPrice().setBasePrice(latestItemData.getItemPrice().getBasePrice());
 
 		this.getItemPrice().setTaxDetail(latestItemData.getItemPrice().getTaxDetail());

@@ -25,8 +25,6 @@ public class ItemRequest implements Serializable {
 	
 	private ItemPrice itemPrice;
 	private Boolean isPricingChanged = false;
-	
-	private Integer countForDelivery = 0;
 	private Integer countForInStorePickup = 1;
 	
 	/**
@@ -37,12 +35,7 @@ public class ItemRequest implements Serializable {
 	 * selling-price = basePrice + taxAmount - individualItemDiscountAmount
 	 * netPrice = fn ( (count * price), cummulative-discount-if-applicable)
 	 * 
-	 */	
-	
-	private Double netPrice = 0.0D;
-	private Double netTaxAmount = 0.0D;
-	private Double netTaxableAmount = 0.0D;
-	private Double netDiscountAmount = 0.0D;
+	 */
 
 	public List<ErrorCode> selfValidate() {
 		List<ErrorCode> response = new ArrayList<ErrorCode>();
