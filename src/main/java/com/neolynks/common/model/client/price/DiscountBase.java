@@ -20,32 +20,4 @@ public class DiscountBase implements Serializable {
 	private Double value = 1.0D;
 	private DiscountUnit unit = DiscountUnit.COUNT;
 	private DiscountPlayer player = DiscountPlayer.SELF;
-
-	public Boolean isDifferent(DiscountBase discountBase) {
-
-		if (discountBase == null) {
-			return Boolean.TRUE;
-		}
-
-		if ((this.getValue() == null && discountBase.getValue() != null)
-				|| (this.getValue() != null && discountBase.getValue() == null)
-				|| (this.getValue().compareTo(discountBase.getValue()) != 0)) {
-			return Boolean.TRUE;
-		}
-
-		if ((this.getUnit() == null && discountBase.getUnit() != null)
-				|| (this.getUnit() != null && discountBase.getUnit() == null)
-				|| (this.getUnit().getValue() != discountBase.getUnit().getValue())) {
-			return Boolean.TRUE;
-		}
-
-		if ((this.getPlayer() == null && discountBase.getPlayer() != null)
-				|| (this.getPlayer() != null && discountBase.getPlayer() == null)
-				|| (this.getPlayer().getValue() != discountBase.getPlayer().getValue())) {
-			return Boolean.TRUE;
-		}
-
-		return Boolean.FALSE;
-	}
-
 }

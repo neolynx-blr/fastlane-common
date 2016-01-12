@@ -23,42 +23,4 @@ public class DiscountInfo implements Serializable {
 
 	DiscountBase discountOn;
 	List<DiscountBase> discountFor;
-
-	public Boolean isDifferent(DiscountInfo discountInfo) {
-
-		if (discountInfo == null) {
-			return Boolean.TRUE;
-		}
-
-		if ((this.getStartDate() == null && discountInfo.getStartDate() != null)
-				|| (this.getStartDate() != null && discountInfo.getStartDate() == null)
-				|| (this.getStartDate().compareTo(discountInfo.getStartDate()) != 0)) {
-			return Boolean.TRUE;
-		}
-
-		if ((this.getEndDate() == null && discountInfo.getEndDate() != null)
-				|| (this.getEndDate() != null && discountInfo.getEndDate() == null)
-				|| (this.getEndDate().compareTo(discountInfo.getEndDate()) != 0)) {
-			return Boolean.TRUE;
-		}
-
-		if (this.getDiscountOn().isDifferent(discountInfo.getDiscountOn())) {
-			return Boolean.TRUE;
-		}
-
-		if ((CollectionUtils.isNotEmpty(this.getDiscountFor()) && CollectionUtils
-				.isEmpty(discountInfo.getDiscountFor()))
-				|| (CollectionUtils.isEmpty(this.getDiscountFor()) && CollectionUtils.isNotEmpty(discountInfo
-						.getDiscountFor())) || (this.getDiscountFor().size() != discountInfo.getDiscountFor().size())) {
-			return Boolean.TRUE;
-		}
-
-		// TODO Later check for all
-		if (this.getDiscountFor().get(0).isDifferent(discountInfo.getDiscountFor().get(0))) {
-			return Boolean.TRUE;
-		}
-
-		return Boolean.FALSE;
-	}
-
 }

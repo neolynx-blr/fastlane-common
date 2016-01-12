@@ -36,29 +36,4 @@ public class InventoryInfo extends BaseResponse {
 	private Map<Long, ItemInfo> addedItems = new HashMap<Long, ItemInfo>();
 	private Map<Long, ItemInfo> updatedItems = new HashMap<Long, ItemInfo>();
 
-/*	
-	public Boolean checkItemCodeInDifferential(String itemCode) {
-		return Boolean.FALSE;
-	}
-
-	public Boolean checkIfInstanceDataIsValid() {
-		Boolean response = Boolean.TRUE;
-
-		if (vendorId == null || vendorId < 1) {
-			response = Boolean.FALSE;
-		}
-
-		if (newDataVersionId == null || currentDataVersionId == null || newDataVersionId < currentDataVersionId) {
-			response = Boolean.FALSE;
-		}
-
-		if (this.getDeletedItems() == null || this.getAddedItems() == null || this.getUpdatedItems() == null
-				|| (this.getDeletedItems().size() + this.getAddedItems().size() + this.getUpdatedItems().size() < 1)) {
-			response = Boolean.FALSE;
-		}
-
-		return response;
-	}
-*/
-	
 }

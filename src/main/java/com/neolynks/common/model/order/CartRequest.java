@@ -24,7 +24,6 @@ public class CartRequest implements Serializable {
 	private UserDetail userDetail;
 
 	private Map<Long, Integer> inStorePickUpItemBarcodeCountMap = new HashMap<Long, Integer>();
-	private Map<Long, Integer> toBeDeliveredItemBarcodeCountMap = new HashMap<Long, Integer>();
 
 	private Double taxAmount;
 	private Double taxableAmount;

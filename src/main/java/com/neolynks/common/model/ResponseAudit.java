@@ -17,23 +17,9 @@ public class ResponseAudit implements Serializable {
 
 	private static final long serialVersionUID = -790793693651803942L;
 
-	Boolean isError = Boolean.TRUE;
+	private Boolean isError = Boolean.TRUE;
 
-	List<Long> successIds;
-	Map<Long, Error> failureIdCodeMap;
-
-	public List<Long> getSuccessIds() {
-		if (this.successIds == null) {
-			this.successIds = new ArrayList<Long>();
-		}
-		return this.successIds;
-	}
-
-	public Map<Long, Error> getFailureIdCodeMap() {
-		if (this.failureIdCodeMap == null) {
-			this.failureIdCodeMap = new HashMap<Long, Error>();
-		}
-		return failureIdCodeMap;
-	}
+	private List<Long> successIds = new ArrayList<Long>();
+	private Map<Long, Error> failureIdCodeMap = new HashMap<Long, Error>();
 
 }

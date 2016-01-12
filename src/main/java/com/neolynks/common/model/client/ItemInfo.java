@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import lombok.Data;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,11 +15,10 @@ import com.neolynks.common.model.order.ItemProcessor;
  * Created by nitesh.garg on Oct 28, 2015
  *
  */
-
+@Slf4j
 @Data
 public class ItemInfo implements Serializable {
 
-	static Logger LOGGER = LoggerFactory.getLogger(ItemInfo.class);
 	private static final long serialVersionUID = 594832882355959992L;
 
 	private Long barcode;
@@ -90,10 +90,6 @@ public class ItemInfo implements Serializable {
 		if (updateFromLatestItemData.getProductInfo().getIsTagLine()) {
 			this.getProductInfo().setTagLine(updateFromLatestItemData.getProductInfo().getTagLine());
 		}
-	}
-
-	public ItemInfo() {
-		super();
 	}
 
 	public ItemProcessor generateItemProcessor() {

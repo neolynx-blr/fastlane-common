@@ -26,20 +26,11 @@ public class DataValidator {
 			response.getErrorDetail().add(ErrorCode.EXPIRED_DATA_VERSION);
 		}
 
-		if (cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_DELIVERY
-				|| cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_PARTIAL_DELIVERY) {
+        if (cart.getUserDetail() == null || cart.getUserDetail().getUserId() == null) {
+            response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
+        }
 
-			if (cart.getUserDetail() == null || cart.getUserDetail().getAddressId() == null || cart.getUserDetail().getUserId() == null) {
-				response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
-			}
-
-		}
-
-		if (cart.getDeliveryMode() == null) {
-			response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
-		}
-
-		if (cart.getInStorePickUpItemBarcodeCountMap().size() == 0 && cart.getToBeDeliveredItemBarcodeCountMap().size() == 0) {
+		if (cart.getInStorePickUpItemBarcodeCountMap().size() == 0) {
 			response.getErrorDetail().add(ErrorCode.MISSING_ITEMS_IN_CART);
 		} else {
 
@@ -88,20 +79,11 @@ public class DataValidator {
 			response.getErrorDetail().add(ErrorCode.EXPIRED_DATA_VERSION);
 		}
 
-		if (cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_DELIVERY
-				|| cart.getDeliveryMode().getValue() == Constant.DELIVERY_MODE_PARTIAL_DELIVERY) {
+        if (cart.getUserDetail() == null || cart.getUserDetail().getUserId() == null) {
+            response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
+        }
 
-			if (cart.getUserDetail() == null || cart.getUserDetail().getAddressId() == null || cart.getUserDetail().getUserId() == null) {
-				response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
-			}
-
-		}
-
-		if (cart.getDeliveryMode() == null) {
-			response.getErrorDetail().add(ErrorCode.MISSING_USER_DETAILS_FOR_DELIVERY);
-		}
-
-		if (cart.getInStorePickUpItemBarcodeCountMap().size() == 0 && cart.getToBeDeliveredItemBarcodeCountMap().size() == 0) {
+		if (cart.getInStorePickUpItemBarcodeCountMap().size() == 0 ) {
 			response.getErrorDetail().add(ErrorCode.MISSING_ITEMS_IN_CART);
 		} else {
 

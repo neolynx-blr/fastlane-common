@@ -22,14 +22,11 @@ public class CartProcessor {
 
 	private Long vendorId;
 	private Long deviceDataVersionId;
-	private Boolean isCartUpdated = Boolean.FALSE;
-	
+
 	private UserDetail userDetail = new UserDetail();
 	
 	private Map<Long, Integer> inStorePickUpItemBarcodeCountMap = new HashMap<Long, Integer>();
 
-	private Map<Long, ItemProcessor> barcodeItemRequestMap = new HashMap<Long, ItemProcessor>();
-	
 	private Double taxAmount;
 	private Double taxableAmount;
 	private Double discountAmount;
@@ -47,9 +44,6 @@ public class CartProcessor {
 	private Long orderId;
 	private Long lastKnownServerDataVersionId;
 
-	private Boolean isItemListUpdated = Boolean.FALSE;
-	private Boolean isUserDetailUpdated = Boolean.FALSE;
-
 	/**
 	 * Following fields are more of information flowing from server to client
 	 * and something that may be needed at information to display on client side
@@ -57,14 +51,7 @@ public class CartProcessor {
 	 */
 	private Integer orderStatus;
 
-	public CartProcessor() {
-	}
-
-	public ItemProcessor searchCartForBarcode(String barcode) {
-		return this.getBarcodeItemRequestMap().get(barcode);
-	}
-
-	public void addItemToCart(ItemProcessor itemProcessor) {
+	public void addItemToCart(ItemRequest itemRequest) {
 		Boolean recalculatePrice = Boolean.FALSE;
 		ItemProcessor existingItem = this.getBarcodeItemRequestMap().get(itemProcessor.getBarcode());
 		int newCount = itemProcessor.getCountForInStorePickup();
@@ -73,15 +60,11 @@ public class CartProcessor {
 		if (newCount == 0) {
 			if (existingCount > 0) {
 				recalculatePrice = Boolean.TRUE;
-				this.setIsCartUpdated(Boolean.TRUE);
-				this.setIsItemListUpdated(Boolean.TRUE);
 			}
 			removeItemFromCart(itemProcessor.getBarcode());
 		} else {
 			if (newCount != existingCount) {
 				recalculatePrice = Boolean.TRUE;
-				this.setIsCartUpdated(Boolean.TRUE);
-				this.setIsItemListUpdated(Boolean.TRUE);
 				this.setTotalCount(this.getTotalCount() + newCount - existingCount);
 			}
 
@@ -102,8 +85,6 @@ public class CartProcessor {
 		ItemProcessor existingItem = this.getBarcodeItemRequestMap().get(barcode);
 		int existingCount = existingItem.getCountForInStorePickup();
 
-		this.setIsCartUpdated(Boolean.TRUE);
-		this.setIsItemListUpdated(Boolean.TRUE);
 		this.setItemCount(this.getItemCount() - 1);
 		
 		this.getBarcodeItemRequestMap().remove(barcode);
@@ -116,11 +97,7 @@ public class CartProcessor {
 	
 	public void setUserDetailsForCart(String userId, String deviceIdMap, Integer addressId) {
 		this.getUserDetail().setUserId(userId);
-		this.getUserDetail().setAddressId(addressId);
 		this.getUserDetail().setDeviceIdMap(deviceIdMap);
-
-		this.setIsCartUpdated(Boolean.TRUE);
-		this.setIsUserDetailUpdated(Boolean.TRUE);
 	}
 
 	public CartProcessor(CartRequest request) {
@@ -166,8 +143,6 @@ public class CartProcessor {
 		
 		if (this.getOrderId() != null) {
 			CartUpdated updateCart = new CartUpdated();
-			updateCart.setIsItemListUpdated(this.getIsItemListUpdated());
-			updateCart.setIsUserDetailUpdated(this.getIsUserDetailUpdated());
 			updateCart.setLastKnownServerDataVersionId(this.getLastKnownServerDataVersionId());
 			request.setUpdateCart(updateCart);
 		}
@@ -200,11 +175,6 @@ public class CartProcessor {
 		for (ItemProcessor instance : this.getBarcodeItemRequestMap().values()) {
 			this.getBarcodeItemRequestMap().put(instance.getBarcode(), instance);
 		}		 
-		
-		this.setIsCartUpdated(Boolean.FALSE);
-		this.setIsItemListUpdated(Boolean.FALSE);
-		this.setIsUserDetailUpdated(Boolean.FALSE);
-
 	}
 
 	public void calculatePricing() {

@@ -38,17 +38,15 @@ public class ItemPrice implements Serializable {
 				differentialItemPrice.setBasePrice(newItemPrice.getBasePrice());
 			}
 
-			if (this.getTaxDetail() == null || this.getTaxDetail().isDifferent(newItemPrice.getTaxDetail())) {
+			if (this.getTaxDetail() == null || !this.getTaxDetail().equals(newItemPrice.getTaxDetail())) {
 				differentialItemPrice.setTaxDetail(newItemPrice.getTaxDetail());
 			}
 
 			if (this.getDiscountDetail() == null
-					|| this.getDiscountDetail().isDifferent(newItemPrice.getDiscountDetail())) {
+					|| !this.getDiscountDetail().equals(newItemPrice.getDiscountDetail())) {
 				differentialItemPrice.setDiscountDetail(newItemPrice.getDiscountDetail());
 			}
-
 			return differentialItemPrice;
-
 		}
 
 		return null;

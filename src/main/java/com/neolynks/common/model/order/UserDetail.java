@@ -16,11 +16,4 @@ public class UserDetail implements Serializable {
 	
 	private String userId;
 	private String deviceIdMap;
-
-	/**
-	 * Assuming that if the user wants to get items delivered, either he is
-	 * already signed up with stored deliver addresses or will sign-up in
-	 * process
-	 */
-	private Integer addressId;
 }

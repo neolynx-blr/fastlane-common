@@ -39,6 +39,7 @@ public class ResponseUpdate {
 
 	private Double netAmount;
 
+    //TODO: Understand its use ?
 	private List<ItemRequest> onlyUpdatedItemList = new ArrayList<ItemRequest>();
 
 }

@@ -3,10 +3,14 @@
  */
 package com.neolynks.common.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * Created by nitesh.garg on Oct 25, 2015
  *
  */
+@AllArgsConstructor
 public enum ErrorCode {
 
 	/**
@@ -43,25 +47,9 @@ public enum ErrorCode {
 	MISSING_OR_INVALID_LAST_SEEN_SERVER_DATA_VERSION_ID ("DVE016", "Update order call is missing last seen server data version id"),
 	MISSING_ORDER_ID ("DVE017", "Update order call is missing the order-id received in the create call");
 
+    @Getter
 	private final String code;
+
+    @Getter
 	private final String description;
-
-	private ErrorCode(String code, String description) {
-		this.code = code;
-		this.description = description;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	@Override
-	public String toString() {
-		return code + ": " + description;
-	}
-
 }
