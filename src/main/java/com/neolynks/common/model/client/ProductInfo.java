@@ -17,25 +17,12 @@ public class ProductInfo implements Serializable {
 	private static final long serialVersionUID = 1395028613058948189L;
 
 	private String name;
-	private Boolean isName = Boolean.FALSE;
-
 	private String tagLine;
-	private Boolean isTagLine = Boolean.FALSE;
-
 	private String imageJSON;
-	private Boolean isImageJSON = Boolean.FALSE;
-
 	private String description;
-	private Boolean isDescription = Boolean.FALSE;
-
 	private String benefits;
-	private Boolean isBenefits = Boolean.FALSE;
-
 	private String howToUse;
-	private Boolean isHowToUse = Boolean.FALSE;
-
 	private String brandName;
-	private Boolean isBrandName = Boolean.FALSE;
 
 	public ProductInfo generateDifferentialFrom(ProductInfo newProductInfo) {
 
@@ -75,65 +62,6 @@ public class ProductInfo implements Serializable {
 		}
 
 		return null;
-	}
-
-	public void setName(String name) {
-		if (StringUtilsCustom.isChanged(this.name, name)) {
-			this.name = name;
-			this.setIsName(Boolean.TRUE);
-		}
-	}
-
-	public void setTagLine(String tagLine) {
-		if (StringUtilsCustom.isChanged(this.tagLine, tagLine)) {
-			this.tagLine = tagLine;
-			this.setIsTagLine(Boolean.TRUE);
-		}
-	}
-
-	public void setImageJSON(String imageJSON) {
-		if (StringUtilsCustom.isChanged(this.imageJSON, imageJSON)) {
-			this.imageJSON = imageJSON;
-			this.setIsImageJSON(Boolean.TRUE);
-		}
-	}
-
-	public void setDescription(String description) {
-		if (StringUtilsCustom.isChanged(this.description, description)) {
-			this.description = description;
-			this.setIsDescription(Boolean.TRUE);
-		}
-	}
-
-	public void setBenefits(String benefits) {
-		if (StringUtilsCustom.isChanged(this.benefits, benefits)) {
-			this.benefits = benefits;
-			this.setIsBenefits(Boolean.TRUE);
-		}
-	}
-
-	public void setHowToUse(String howToUse) {
-		if (StringUtilsCustom.isChanged(this.howToUse, howToUse)) {
-			this.howToUse = howToUse;
-			this.setIsHowToUse(Boolean.TRUE);
-		}
-	}
-
-	public void setBrandName(String brandName) {
-		if (StringUtilsCustom.isChanged(this.brandName, brandName)) {
-			this.brandName = brandName;
-			this.setIsBrandName(Boolean.TRUE);
-		}
-	}
-
-	public void reset() {
-		this.setIsName(Boolean.FALSE);
-		this.setIsTagLine(Boolean.FALSE);
-		this.setIsImageJSON(Boolean.FALSE);
-		this.setIsDescription(Boolean.FALSE);
-		this.setIsBenefits(Boolean.FALSE);
-		this.setIsHowToUse(Boolean.FALSE);
-		this.setIsBrandName(Boolean.FALSE);
 	}
 
 }

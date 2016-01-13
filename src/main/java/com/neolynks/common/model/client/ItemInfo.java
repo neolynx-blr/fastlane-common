@@ -92,15 +92,4 @@ public class ItemInfo implements Serializable {
 		}
 	}
 
-	public ItemProcessor generateItemProcessor() {
-		ItemProcessor itemProcessor = new ItemProcessor();
-
-		itemProcessor.setBarcode(this.getBarcode());
-		itemProcessor.setItemCode(this.getItemCode());
-		itemProcessor.setItemPrice(this.getItemPrice());
-		itemProcessor.setProductInfo(this.getProductInfo());
-
-		return itemProcessor;
-	}
-
 }

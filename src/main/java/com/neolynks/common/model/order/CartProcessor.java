@@ -33,7 +33,7 @@ public class CartProcessor {
 
 	private Double netAmount;
 
-	private int itemCount;
+	private int uniqItemCount;
 	private int totalCount;
 
 	/**
@@ -69,7 +69,7 @@ public class CartProcessor {
 			}
 
 			if (existingCount == 0) {
-				this.setItemCount(this.getItemCount() + 1);
+				this.setUniqItemCount(this.getUniqItemCount() + 1);
 			}
 			
 			this.getBarcodeItemRequestMap().put(itemProcessor.getBarcode(), itemProcessor);
@@ -82,12 +82,10 @@ public class CartProcessor {
 	
 	public void removeItemFromCart(Long barcode) {
 
-		ItemProcessor existingItem = this.getBarcodeItemRequestMap().get(barcode);
-		int existingCount = existingItem.getCountForInStorePickup();
+		int existingCount = this.getInStorePickUpItemBarcodeCountMap().get(barcode);
 
-		this.setItemCount(this.getItemCount() - 1);
+		this.setUniqItemCount(this.getUniqItemCount() - 1);
 		
-		this.getBarcodeItemRequestMap().remove(barcode);
 		this.getInStorePickUpItemBarcodeCountMap().remove(barcode);
 		
 		this.setTotalCount(this.getTotalCount() - existingCount);
@@ -168,13 +166,7 @@ public class CartProcessor {
 			if(instance.getCountForInStorePickup() > 0) {
 				this.getInStorePickUpItemBarcodeCountMap().put(instance.getBarcode(), instance.getCountForInStorePickup());
 			}
-
-			this.getBarcodeItemRequestMap().put(instance.getBarcode(), new ItemProcessor(instance));
 		}
-		
-		for (ItemProcessor instance : this.getBarcodeItemRequestMap().values()) {
-			this.getBarcodeItemRequestMap().put(instance.getBarcode(), instance);
-		}		 
 	}
 
 	public void calculatePricing() {
