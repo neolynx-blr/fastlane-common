@@ -11,7 +11,7 @@ public class ItemResponse implements Serializable {
 
 	private static final long serialVersionUID = -2390488059710886230L;
 
-	private Long barcode;
+	private String barcode;
 
 	// private Long vendorId;
 	private Long versionId;

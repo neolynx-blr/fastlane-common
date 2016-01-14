@@ -2,10 +2,11 @@ package com.neolynks.common.model.cart;
 
 import java.io.Serializable;
 
+import com.neolynks.common.api.common.CartStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import com.neolynks.common.model.BaseResponse;
+import com.neolynks.common.api.common.BaseResponse;
 
 /**
  * Created by nitesh.garg on Dec 27, 2015

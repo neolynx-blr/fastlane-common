@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.neolynks.common.api.common.Error;
 import lombok.Data;
 
 /**
@@ -20,6 +21,6 @@ public class ResponseAudit implements Serializable {
 	private Boolean isError = Boolean.TRUE;
 
 	private List<Long> successIds = new ArrayList<Long>();
-	private Map<Long, Error> failureIdCodeMap = new HashMap<Long, Error>();
+	private Map<Long, com.neolynks.common.api.common.Error> failureIdCodeMap = new HashMap<Long, Error>();
 
 }

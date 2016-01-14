@@ -1,4 +1,4 @@
-package com.neolynks.common.model.order;
+package com.neolynks.common.api.customer;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.neolynks.common.model.client;
+package com.neolynks.common.api.worker;
 
 import java.io.Serializable;
 import java.util.List;

@@ -3,7 +3,7 @@ package com.neolynks.common.model.order;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import com.neolynks.common.model.BaseResponse;
+import com.neolynks.common.api.common.BaseResponse;
 
 /**
  * Created by nitesh.garg on Oct 22, 2015

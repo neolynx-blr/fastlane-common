@@ -1,10 +1,8 @@
-package com.neolynks.common.model;
+package com.neolynks.common.api.common;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.collections4.CollectionUtils;
 
 import lombok.Data;
 
@@ -13,10 +11,11 @@ import lombok.Data;
  */
 
 @Data
-public class BaseResponse implements Serializable {
+public class BaseResponse<T> implements Serializable {
 
 	private static final long serialVersionUID = -7602457173741485802L;
 
 	private Boolean isError = Boolean.FALSE;
 	private List<ErrorCode> errorDetail = new ArrayList<ErrorCode>();
+    private T data;
 }

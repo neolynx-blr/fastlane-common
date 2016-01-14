@@ -3,8 +3,10 @@ package com.neolynks.common.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import lombok.NoArgsConstructor;
 import org.apache.commons.csv.CSVRecord;
 
 import com.neolynks.common.util.StringUtilsCustom;
@@ -14,13 +16,15 @@ import com.neolynks.common.util.StringUtilsCustom;
  */
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ItemMaster implements Serializable {
 
 	private static final long serialVersionUID = 3297823532542422428L;
 
 	private Long id;
 
-	private Long barcode;
+	private String barcode;
 	private String itemCode;
 	private Long versionId;
 
@@ -72,7 +76,7 @@ public class ItemMaster implements Serializable {
 			this.setVersionId(System.currentTimeMillis());
 
 			this.setItemCode(record.get("item_code"));
-			this.setBarcode(Long.parseLong(record.get("barcode")));
+			this.setBarcode(record.get("barcode"));
 
 			this.setName(record.get("name"));
 			this.setDescription(record.get("description"));
@@ -96,31 +100,9 @@ public class ItemMaster implements Serializable {
 		} catch (NumberFormatException nfe) {
 
 		} catch (Exception e) {
-			
+
 		}
 
-	}
-
-	public ItemMaster() {
-	}
-
-	public ItemMaster(Long id, Long barcode, String itemCode, Long versionId, String name, String tagline,
-			String description, Double mrp, Double sellingPrice, String imageJSON, String discountJSON, String taxJSON,
-			Date lastModifiedOn) {
-		super();
-		this.id = id;
-		this.barcode = barcode;
-		this.itemCode = itemCode;
-		this.versionId = versionId;
-		this.name = name;
-		this.tagline = tagline;
-		this.description = description;
-		this.mrp = mrp;
-		this.sellingPrice = sellingPrice;
-		this.imageJSON = imageJSON;
-		this.discountJSON = discountJSON;
-		this.taxJSON = taxJSON;
-		this.lastModifiedOn = lastModifiedOn;
 	}
 
 }

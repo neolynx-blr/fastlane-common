@@ -30,10 +30,6 @@ public class Constant {
 	public final static int CARD_TYPE_AMEX_CARD = 2;
 	public final static int CARD_TYPE_MASTER_CARD = 3;
 	
-	public final static int DELIVERY_MODE_IN_STORE_PICKUP = 1;
-	public final static int DELIVERY_MODE_PARTIAL_DELIVERY = 2;
-	public final static int DELIVERY_MODE_DELIVERY = 3;
-	
 	public final static int DISCOUNT_UNIT_COUNT = 1;
 	public final static int DISCOUNT_UNIT_GRAMS = 2;
 	public final static int DISCOUNT_UNIT_METERS = 3;

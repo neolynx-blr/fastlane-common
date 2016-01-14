@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.neolynks.common.api.customer.UserDetail;
 import lombok.Data;
 
 /**
@@ -24,12 +25,6 @@ public class CartRequest implements Serializable {
 	private UserDetail userDetail;
 
 	private Map<Long, Integer> inStorePickUpItemBarcodeCountMap = new HashMap<Long, Integer>();
-
-	private Double taxAmount;
-	private Double taxableAmount;
-	private Double discountAmount;
-
-	private Double netAmount;
 
 	/**
 	 * This object is used to indicate that order is updated now, although DO

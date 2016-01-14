@@ -1,4 +1,4 @@
-package com.neolynks.common.model.cart;
+package com.neolynks.common.api.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

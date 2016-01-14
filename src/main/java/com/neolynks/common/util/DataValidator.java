@@ -2,8 +2,8 @@ package com.neolynks.common.util;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import com.neolynks.common.model.BaseResponse;
-import com.neolynks.common.model.ErrorCode;
+import com.neolynks.common.api.common.BaseResponse;
+import com.neolynks.common.api.common.ErrorCode;
 import com.neolynks.common.model.order.CartRequest;
 
 /**

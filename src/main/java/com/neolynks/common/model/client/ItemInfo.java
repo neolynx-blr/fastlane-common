@@ -14,7 +14,7 @@ import com.neolynks.common.model.order.ItemProcessor;
 /**
  * Created by nitesh.garg on Oct 28, 2015
  *
- */
+s */
 @Slf4j
 @Data
 public class ItemInfo implements Serializable {
@@ -40,7 +40,6 @@ public class ItemInfo implements Serializable {
 		this.getItemPrice().setTaxDetail(latestItemData.getItemPrice().getTaxDetail());
 		this.getItemPrice().setDiscountDetail(latestItemData.getItemPrice().getDiscountDetail());
 
-		this.getProductInfo().reset();
 		this.getProductInfo().setName(latestItemData.getProductInfo().getName());
 		this.getProductInfo().setTagLine(latestItemData.getProductInfo().getTagLine());
 		this.getProductInfo().setImageJSON(latestItemData.getProductInfo().getImageJSON());
@@ -71,25 +70,6 @@ public class ItemInfo implements Serializable {
 
 		return deltaItemInfo;
 
-	}
-
-	public void mergeOnlyNewUpdatesFrom(ItemInfo updateFromLatestItemData) {
-
-		if (updateFromLatestItemData.getProductInfo().getIsName()) {
-			this.getProductInfo().setName(updateFromLatestItemData.getProductInfo().getName());
-		}
-
-		if (updateFromLatestItemData.getProductInfo().getIsDescription()) {
-			this.getProductInfo().setDescription(updateFromLatestItemData.getProductInfo().getDescription());
-		}
-
-		if (updateFromLatestItemData.getProductInfo().getIsImageJSON()) {
-			this.getProductInfo().setImageJSON(updateFromLatestItemData.getProductInfo().getImageJSON());
-		}
-
-		if (updateFromLatestItemData.getProductInfo().getIsTagLine()) {
-			this.getProductInfo().setTagLine(updateFromLatestItemData.getProductInfo().getTagLine());
-		}
 	}
 
 }

@@ -3,6 +3,7 @@ package com.neolynks.common.model.order;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.neolynks.common.api.customer.UserDetail;
 import lombok.Data;
 
 /**
@@ -51,35 +52,6 @@ public class CartProcessor {
 	 */
 	private Integer orderStatus;
 
-	public void addItemToCart(ItemRequest itemRequest) {
-		Boolean recalculatePrice = Boolean.FALSE;
-		ItemProcessor existingItem = this.getBarcodeItemRequestMap().get(itemProcessor.getBarcode());
-		int newCount = itemProcessor.getCountForInStorePickup();
-		int existingCount = (existingItem == null ? 0 : existingItem.getCountForInStorePickup());
-
-		if (newCount == 0) {
-			if (existingCount > 0) {
-				recalculatePrice = Boolean.TRUE;
-			}
-			removeItemFromCart(itemProcessor.getBarcode());
-		} else {
-			if (newCount != existingCount) {
-				recalculatePrice = Boolean.TRUE;
-				this.setTotalCount(this.getTotalCount() + newCount - existingCount);
-			}
-
-			if (existingCount == 0) {
-				this.setUniqItemCount(this.getUniqItemCount() + 1);
-			}
-			
-			this.getBarcodeItemRequestMap().put(itemProcessor.getBarcode(), itemProcessor);
-		}	
-
-		if (recalculatePrice) {
-			calculatePricing();
-		}
-	}
-	
 	public void removeItemFromCart(Long barcode) {
 
 		int existingCount = this.getInStorePickUpItemBarcodeCountMap().get(barcode);

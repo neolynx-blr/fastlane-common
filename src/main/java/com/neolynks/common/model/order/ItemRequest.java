@@ -1,16 +1,10 @@
 package com.neolynks.common.model.order;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import lombok.AccessLevel;
 import lombok.Data;
 
-import com.neolynks.common.model.ErrorCode;
-import com.neolynks.common.model.client.ItemInfo;
-import com.neolynks.common.model.client.price.ItemPrice;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**

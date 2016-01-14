@@ -13,12 +13,11 @@ import lombok.EqualsAndHashCode;
  */
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 public class CartInfoDelta implements Serializable {
 
 	private static final long serialVersionUID = -7937068926138372616L;
 
 	private String id;
-	private Long vendorId;
 	private Map<Long, Integer> deltaBarcodeCount = new HashMap<Long, Integer>();
 }

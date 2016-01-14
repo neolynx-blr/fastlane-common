@@ -10,8 +10,7 @@ import org.apache.commons.csv.CSVPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.neolynks.common.model.BaseResponse;
-import com.neolynks.common.util.StringUtilsCustom;
+import com.neolynks.common.api.common.BaseResponse;
 
 /**
  * Created by nitesh.garg on 17-Sep-2015
