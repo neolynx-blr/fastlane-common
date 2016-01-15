@@ -18,5 +18,4 @@ public class InventoryRequest implements Serializable {
 	private Long dataVersionId;
 	
 	private List<ItemMaster> itemsUpdated;
-	
 }
